@@ -1,0 +1,8 @@
+# Virtuoso files /data/db
+/data/db/*
+
+*~
+
+publicatie-app
+docker-compose.override.yml
+.env

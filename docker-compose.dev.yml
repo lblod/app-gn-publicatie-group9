@@ -1,0 +1,34 @@
+version: "3.4"
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+services:
+  publicatie:
+    ports:
+      - 8080:80
+    restart: "no"
+  identifier:
+    restart: "no"
+  database:
+    restart: "no"
+  virtuoso:
+    restart: "no"
+    ports:
+      - 8890:8890
+    volumes:
+      - ./config/db/virtuoso.dev.ini:/data/virtuoso.ini
+    # environment:
+    #   BACKUP_PREFIX: "virtuoso_backup_200914T0330-"
+  migrations:
+    restart: "no"
+  cache:
+    restart: "no"
+  besluit-publicatie:
+    restart: "no"
+  publicatie-melding:
+    restart: "no"
+    command: "/bin/false" # overwrite when testing
+
