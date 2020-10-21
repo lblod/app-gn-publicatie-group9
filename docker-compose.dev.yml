@@ -32,3 +32,20 @@ services:
     restart: "no"
     command: "/bin/false" # overwrite when testing
 
+  published-resource-consumer:
+    image: lblod/gelinkt-notuleren-consumer
+    restart: "no"
+    environment:
+      NODE_ENV: development
+      SERVICE_NAME: 'published-resource-consumer'
+      # assumes the producer is running locally on your host
+      SYNC_BASE_URL: 'http://docker-host'
+      INGEST_INTERVAL: 60000
+    volumes:
+      - ./config/consumer/:/config/
+  # cross-platform way to send traffic to the host network
+  docker-host:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+    mem_limit: 8M
+    restart: on-failure

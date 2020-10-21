@@ -22,8 +22,8 @@ defmodule Dispatcher do
   #   Proxy.forward conn, path, "http://resource/themes/"
   # end
 
-  match "/published-resources-consumer/*path" do
-    Proxy.forward conn, path, "http://consumer/"
+  match "/published-resource-consumer/*path" do
+    Proxy.forward conn, path, "http://published-resource-consumer/"
   end
   match "/agendas/*path" do
     Proxy.forward conn, path, "http://resource/agendas/"

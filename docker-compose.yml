@@ -115,3 +115,11 @@ services:
     logging: *default-logging
     labels:
       - "logging=true"
+  published-resource-consumer:
+    image: lblod/gelinkt-notuleren-consumer:0.1.4
+    environment:
+      SERVICE_NAME: 'published-resource-consumer'
+      SYNC_BASE_URL: 'http://docker-host'
+      INGEST_INTERVAL: 60000
+    volumes:
+      - ./config/consumer/:/config/
