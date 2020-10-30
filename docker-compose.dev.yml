@@ -45,9 +45,9 @@ services:
       - ./config/consumer/:/config/
     networks:
       - default
-      - gn
+      - gelinkt-notuleren
 
   networks:
     gelinkt-notuleren:
       external:
-        name: app-gelinkt-notuleren
+        name: app-gelinkt-notuleren_default
