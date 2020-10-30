@@ -119,7 +119,8 @@ services:
     image: lblod/gelinkt-notuleren-consumer:0.1.4
     environment:
       SERVICE_NAME: 'published-resource-consumer'
-      SYNC_BASE_URL: 'http://docker-host'
+      SYNC_BASE_URL: 'http://published-resource-producer'
+      SYNC_FILES_PATH: '/files' 
       INGEST_INTERVAL: 60000
     volumes:
       - ./config/consumer/:/config/
