@@ -101,3 +101,25 @@ services:
         max-file: "3"
     labels:
       - "logging=true"
+
+  deltanotifier:
+    image: semtech/mu-delta-notifier:0.1.0
+    volumes:
+      - ./config/delta:/config
+    restart: always
+  dispatcher:
+    image: semtech/mu-dispatcher:1.1.2
+    volumes:
+      - ./config/dispatcher:/config
+    restart: always
+    logging: *default-logging
+    labels:
+      - "logging=true"
+  published-resource-consumer:
+    image: lblod/gelinkt-notuleren-consumer:0.1.4
+    environment:
+      SERVICE_NAME: 'published-resource-consumer'
+#      SYNC_BASE_URL: 'http://[dev.]gelinkt-notuleren.lblod.info'
+INGEST_INTERVAL: 60000
+    volumes:
+      - ./config/consumer/:/config/

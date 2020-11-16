@@ -56,7 +56,8 @@ defmodule Acl.UserGroups.Config do
                         "http://data.vlaanderen.be/ns/besluit#BehandelingVanAgendapunt",
                         "http://data.vlaanderen.be/ns/mandaat#Mandaat",
                         "http://data.vlaanderen.be/ns/mandaat#Mandataris",
-                        "http://data.vlaanderen.be/ns/mandaat#Fractie"
+                        "http://data.vlaanderen.be/ns/mandaat#Fractie",
+                        "http://mu.semte.ch/vocabularies/ext/signing/PublishedResource"
                       ]
                     } },
                   %GraphSpec{
