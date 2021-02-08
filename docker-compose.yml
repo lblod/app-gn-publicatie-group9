@@ -121,5 +121,6 @@ services:
       SERVICE_NAME: 'published-resource-consumer'
 #      SYNC_BASE_URL: 'http://[dev.]gelinkt-notuleren.lblod.info'
       INGEST_INTERVAL: 60000
+      BATCH_INTERVAL: 5
     volumes:
       - ./config/consumer/:/config/
