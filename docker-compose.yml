@@ -116,7 +116,7 @@ services:
     labels:
       - "logging=true"
   published-resource-consumer:
-    image: lblod/gelinkt-notuleren-consumer:0.1.4
+    image: lblod/gelinkt-notuleren-consumer:0.1.6
     environment:
       SERVICE_NAME: 'published-resource-consumer'
 #      SYNC_BASE_URL: 'http://[dev.]gelinkt-notuleren.lblod.info'
