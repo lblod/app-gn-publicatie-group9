@@ -122,5 +122,6 @@ services:
 #      SYNC_BASE_URL: 'http://[dev.]gelinkt-notuleren.lblod.info'
       INGEST_INTERVAL: 60000
       BATCH_SIZE: 5
+    restart: always      
     volumes:
       - ./config/consumer/:/config/
