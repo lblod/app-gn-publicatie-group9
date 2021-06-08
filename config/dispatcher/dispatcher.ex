@@ -105,4 +105,12 @@ defmodule Dispatcher do
   match "/versioned-notulen/*path" do
     Proxy.forward conn, path, "http://resource/versioned-notulen/"
   end
+
+  match "/concepts/*path" do
+    Proxy.forward conn, path, "http://cache/concepts/"
+  end
+
+  match "/concept-schemes/*path" do
+    Proxy.forward conn, path, "http://cache/concept-schemes/"
+  end
 end
