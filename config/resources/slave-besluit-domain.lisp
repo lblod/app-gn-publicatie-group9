@@ -6,7 +6,6 @@
                 (:gepland-openbaar :boolean ,(s-prefix "besluit:geplandOpenbaar"))
                 (:heeft-ontwerpbesluit :url ,(s-prefix "besluit:heeftOntwerpbesluit"))
                 (:titel :string ,(s-prefix "dct:title"))
-                (:type :uri-set ,(s-prefix "besluit:Agendapunt.type"))
                 (:position :int ,(s-prefix "schema:position")))
   :has-many `((agendapunt :via ,(s-prefix "dct:references")
                           :as "referenties")
@@ -14,12 +13,42 @@
                                   :as "publications"))
   :has-one `((agendapunt :via ,(s-prefix "besluit:aangebrachtNa")
                          :as "vorige-agendapunt")
+             (concept :via ,(s-prefix "besluit:Agendapunt.type")
+                         :as "type")
              (behandeling-van-agendapunt :via ,(s-prefix "dct:subject")
                                          :inverse t
                                          :as "behandeling"))
   :resource-base (s-url "http://data.lblod.info/id/agendapunten/")
   :features '(include-uri)
   :on-path "agendapunten")
+
+(define-resource concept-scheme ()
+  :class (s-prefix "skos:ConceptScheme")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :has-many `((concept :via ,(s-prefix "skos:inScheme")
+                       :inverse t
+                       :as "concepts")
+              (concept :via ,(s-prefix "skos:topConceptOf")
+                       :inverse t
+                       :as "top-concepts"))
+  :resource-base (s-url "http://lblod.data.gift/concept-schemes/")
+  :features `(include-uri)
+  :on-path "concept-schemes"
+)
+
+(define-resource concept ()
+  :class (s-prefix "skos:Concept")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:notation :string ,(s-prefix "skos:notation"))
+                (:search-label :string ,(s-prefix "ext:searchLabel")))
+  :has-many `((concept-scheme :via ,(s-prefix "skos:inScheme")
+                              :as "concept-schemes")
+              (concept-scheme :via ,(s-prefix "skos:topConceptOf")
+                              :as "top-concept-schemes"))
+  :resource-base (s-url "http://lblod.data.gift/concepts/")
+  :features `(include-uri)
+  :on-path "concepts"
+)
 
 (define-resource artikel ()
   :class (s-prefix "besluit:Artikel")
