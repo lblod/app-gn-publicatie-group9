@@ -32,22 +32,25 @@ services:
     restart: "no"
     command: "/bin/false" # overwrite when testing
 
-  published-resource-consumer:
-    image: lblod/gelinkt-notuleren-consumer
-    restart: "no"
-    environment:
-      NODE_ENV: development
-      SERVICE_NAME: 'published-resource-consumer'
-      # assumes the app-gn stack is running locally on your host
-      SYNC_BASE_URL: 'http://published-resource-producer'
-      INGEST_INTERVAL: 60000
-    volumes:
-      - ./config/consumer/:/config/
-    networks:
-      - default
-      - gelinkt-notuleren
+  # # enable the following for linking the consumer to a local stack
+  # # assumes the app-gn stack is running locally on your host
+  # # and you've renamed the identifier to identifier-gelinkt-notuleren
+  # published-resource-consumer:
+  #   image: lblod/gelinkt-notuleren-consumer
+  #   restart: "no"
+  #   environment:
+  #     NODE_ENV: development
+  #     SERVICE_NAME: 'published-resource-consumer'
 
-  networks:
-    gelinkt-notuleren:
-      external:
-        name: app-gelinkt-notuleren_default
+  #     SYNC_BASE_URL: 'http://identifier-gelinkt-notuleren'
+  #     INGEST_INTERVAL: 60000
+  #   volumes:
+  #     - ./config/consumer/:/config/
+  #   networks:
+  #     - default
+  #     - gelinkt-notuleren
+
+  # networks:
+  #   gelinkt-notuleren:
+  #     external:
+  #       name: app-gelinkt-notuleren_default
