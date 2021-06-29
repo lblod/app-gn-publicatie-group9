@@ -7,7 +7,7 @@ x-logging: &default-logging
     max-file: "3"
 services:
   publicatie:
-    image: lblod/frontend-gelinkt-notuleren-publicatie:0.18.1
+    image: lblod/frontend-gelinkt-notuleren-publicatie:0.19.0
     links:
       - identifier:backend
     restart: always
