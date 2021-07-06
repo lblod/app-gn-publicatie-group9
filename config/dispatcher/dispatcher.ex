@@ -110,10 +110,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://publicatie/assets/"
   end
 
-  match "/*_path", @html do
+  match "/favicon.ico", @any do
+    send_resp( conn, 404, "" )
+  end
+
+  match "/*path", @html do
     # *_path allows a path to be supplied, but will not yield
     # an error that we don't use the path variable.
-    Proxy.forward conn, [], "http://publicatie/index.html"
+    Proxy.forward conn, path, "http://publicatie/"
   end
 
   match "/*_", %{ last_call: true, accept: %{ json: true } } do
