@@ -117,3 +117,7 @@ services:
     restart: always      
     volumes:
       - ./config/consumer/:/config/
+  taskmetrics:
+    image: lblod/task-metrics-service:1.0.0
+    links:
+      - database:database

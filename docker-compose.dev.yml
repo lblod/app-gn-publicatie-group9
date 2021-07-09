@@ -31,7 +31,8 @@ services:
   publicatie-melding:
     restart: "no"
     command: "/bin/false" # overwrite when testing
-
+  taskmetrics:
+    restart: "no"
   # # enable the following for linking the consumer to a local stack
   # # assumes the app-gn stack is running locally on your host
   # # and you've renamed the identifier to identifier-gelinkt-notuleren
