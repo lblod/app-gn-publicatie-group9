@@ -82,13 +82,15 @@ services:
     labels:
       - "logging=true"
   publicatie-melding:
-    image: lblod/besluit-publicatie-melding-service:0.4.0
+    image: lblod/besluit-publicatie-melding-service:0.5.1
     restart: always
     logging: *default-logging
     labels:
       - "logging=true"
     links:
       - database:database
+    environment:
+      RESCHEDULE_CRON_PATTERN: '15 7 * * *'
   resource:
     image: semtech/mu-cl-resources:1.18.0
     volumes:
