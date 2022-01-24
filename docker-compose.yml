@@ -54,7 +54,7 @@ services:
     labels:
       - "logging=true"
   migrations:
-    image: semtech/mu-migrations-service:0.5.0
+    image: semtech/mu-migrations-service:0.7.0
     links:
       - virtuoso:database
     volumes:
@@ -92,7 +92,7 @@ services:
     environment:
       RESCHEDULE_CRON_PATTERN: '15 7 * * *'
   resource:
-    image: semtech/mu-cl-resources:1.18.0
+    image: semtech/mu-cl-resources:1.20.0
     volumes:
       - ./config/resources:/config
     restart: always
