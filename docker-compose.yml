@@ -103,7 +103,8 @@ services:
         max-file: "3"
     labels:
       - "logging=true"
-
+    environment:
+      CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
   deltanotifier:
     image: semtech/mu-delta-notifier:0.1.0
     volumes:
