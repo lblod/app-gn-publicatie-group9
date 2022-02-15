@@ -1,3 +1,14 @@
+## 1.4.5 (2022-02-15)
+* bump frontend to 0.22.1 (1d00ac8)
+  fixes: 
+      - empty titles in extract view 
+      - harvesting of decision lists
+* configure cache clear path (e7141cc)
+* set up delta's for resources (460e81d)
+
+
+
+
 ## 1.4.4 (2021-11-30)
 
 bumped frontend
