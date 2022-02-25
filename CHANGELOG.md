@@ -1,3 +1,8 @@
+## 1.4.6 (2022-02-25)
+
+bump frontend from 0.22.1 to 0.23.0
+
+
 ## 1.4.5 (2022-02-15)
 * bump frontend to 0.22.1 (1d00ac8)
   fixes: 
