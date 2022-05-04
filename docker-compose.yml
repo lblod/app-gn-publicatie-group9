@@ -8,6 +8,7 @@ x-logging: &default-logging
 services:
   publicatie:
     image: lblod/frontend-gelinkt-notuleren-publicatie:0.24.0
+    mem_limit: 2g    
     links:
       - identifier:backend
     restart: always
