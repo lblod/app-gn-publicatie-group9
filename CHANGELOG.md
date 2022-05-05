@@ -1,3 +1,12 @@
+## 1.5.1 (2022-05-05)
+
+#### :bug: Bug Fix
+* [#12](https://github.com/lblod/app-gn-publicatie/pull/12) add a memory limit to the frontend ([@nvdk](https://github.com/nvdk))
+* [#13](https://github.com/lblod/app-gn-publicatie/pull/13) bump frontend to 0.24.1 ([@nvdk](https://github.com/nvdk))
+
+#### Committers: 1
+- Niels V ([@nvdk](https://github.com/nvdk))
+
 ## 1.5.0 (2022-04-25)
 
 #### :rocket: Enhancement
