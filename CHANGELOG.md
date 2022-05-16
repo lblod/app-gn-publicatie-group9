@@ -1,3 +1,11 @@
+## 1.5.2 (2022-05-16)
+
+#### :bug: Bug Fix
+* [#14](https://github.com/lblod/app-gn-publicatie/pull/14) bump frontend to 0.24.2 ([@nvdk](https://github.com/nvdk))
+
+#### Committers: 1
+- Niels V ([@nvdk](https://github.com/nvdk))
+
 ## 1.5.1 (2022-05-05)
 
 #### :bug: Bug Fix
