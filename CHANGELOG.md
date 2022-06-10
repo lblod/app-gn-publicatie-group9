@@ -1,3 +1,14 @@
+## 1.5.3 (2022-06-10)
+
+#### :bug: Bug Fix
+* [#15](https://github.com/lblod/app-gn-publicatie/pull/15) bump publicatie publish service to 0.10.1 ([@nvdk](https://github.com/nvdk))
+
+#### :house: Internal
+* [#16](https://github.com/lblod/app-gn-publicatie/pull/16) :cloud: Upgrade publicatie to 0.24.3 ([@nvdk](https://github.com/nvdk))
+
+#### Committers: 1
+- Niels V ([@nvdk](https://github.com/nvdk))
+
 ## 1.5.2 (2022-05-16)
 
 #### :bug: Bug Fix
