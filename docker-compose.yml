@@ -7,8 +7,8 @@ x-logging: &default-logging
     max-file: "3"
 services:
   publicatie:
-    image: lblod/frontend-gelinkt-notuleren-publicatie:0.24.3
-    mem_limit: 2g    
+    image: lblod/frontend-gelinkt-notuleren-publicatie:0.24.4
+    mem_limit: 4g
     links:
       - identifier:backend
     restart: always
@@ -118,7 +118,7 @@ services:
 #      SYNC_BASE_URL: 'http://[dev.]gelinkt-notuleren.lblod.info'
       INGEST_INTERVAL: 60000
       BATCH_SIZE: 5
-    restart: always      
+    restart: always
     volumes:
       - ./config/consumer/:/config/
   taskmetrics:
