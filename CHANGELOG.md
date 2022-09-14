@@ -1,3 +1,11 @@
+## 1.6.0 (2022-09-14)
+
+#### :house: Internal
+* [#17](https://github.com/lblod/app-gn-publicatie/pull/17) bump frontend to 0.24.4 ([@nvdk](https://github.com/nvdk))
+
+#### Committers: 1
+- Niels V ([@nvdk](https://github.com/nvdk))
+
 ## 1.5.3 (2022-06-10)
 
 #### :bug: Bug Fix
