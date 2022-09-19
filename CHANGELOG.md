@@ -1,3 +1,11 @@
+## 1.6.1 (2022-09-19)
+
+#### :bug: Bug Fix
+* [#18](https://github.com/lblod/app-gn-publicatie/pull/18) :cloud: Upgrade publicatie to 0.24.6 ([@nvdk](https://github.com/nvdk))
+
+#### Committers: 1
+- Niels V ([@nvdk](https://github.com/nvdk))
+
 ## 1.6.0 (2022-09-14)
 
 #### :house: Internal
