@@ -1,3 +1,12 @@
+
+## 1.7.0 (2023-01-27)
+
+#### :house: Internal
+* [#20](https://github.com/lblod/app-gn-publicatie/pull/20) Bump melding service to 0.6.0 ([@lagartoverde](https://github.com/lagartoverde))
+
+#### Committers: 1
+- Oscar Rodriguez Villalobos ([@lagartoverde](https://github.com/lagartoverde))
+
 ## 1.6.2 (2022-12-07)
 
 #### :house: Internal
