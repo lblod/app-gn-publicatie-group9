@@ -121,6 +121,7 @@
                 (:inhoud :string ,(s-prefix "prov:value"))
                 (:taal :url ,(s-prefix "eli:language"))
                 (:titel :string ,(s-prefix "eli:title"))
+                (:parts :uri-set ,(s-prefix "eli:related_to"))
                 (:score :float ,(s-prefix "nao:score")))
   :has-one `((rechtsgrond-besluit :via ,(s-prefix "eli:realizes")
                                   :as "realisatie")
