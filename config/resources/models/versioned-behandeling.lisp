@@ -1,0 +1,20 @@
+(define-resource versioned-behandeling ()
+  :class (s-prefix "ext:VersionedBehandeling")
+  :properties `((:state :string ,(s-prefix "ext:stateString"))
+                (:content :string ,(s-prefix "ext:content")))
+  :has-many `((signed-resource :via ,(s-prefix "ext:signsBehandeling")
+                               :inverse t
+                               :as "signed-resources"))
+  :has-one `((published-resource :via ,(s-prefix "ext:publishesBehandeling")
+                                 :inverse t
+                                 :as "published-resource")
+             (editor-document :via ,(s-prefix "prov:wasDerivedFrom")
+                              :as "editor-document")
+             (document-container :via ,(s-prefix "ext:hasVersionedBehandeling")
+                                 :inverse t
+                                 :as "document-container")
+             (behandeling-van-agendapunt :via ,(s-prefix "ext:behandeling")
+                                         :as "behandeling"))
+  :resource-base (s-url "http://data.lblod.info/prepublished-behandeling/")
+  :features '(include-uri)
+  :on-path "versioned-behandelingen")

@@ -1,0 +1,13 @@
+(define-resource agenda ()
+  :class (s-prefix "ext:Agenda")
+  :properties `((:inhoud :string ,(s-prefix "prov:value")))
+  :has-one `((published-resource :via ,(s-prefix "prov:wasDerivedFrom")
+                             :as "publication")
+             (zitting :via ,(s-prefix "ext:agenda")
+                      :inverse t
+                      :as "zitting"))
+  :has-many `((agendapunt :via ,(s-prefix "ext:agendaAgendapunt")
+                                  :as "agendapunten"))
+  :resource-base (s-url "http://data.lblod.info/id/agendas/")
+  :features '(include-uri)
+  :on-path "agendas")
