@@ -157,6 +157,7 @@
                 (:publicatiedatum :date ,(s-prefix "eli:date_publication"))
                 (:inhoud :string ,(s-prefix "prov:value"))
                 (:taal :url ,(s-prefix "eli:language"))
+                (:parts :uri-set ,(s-prefix "eli:related_to"))
                 (:titel :string ,(s-prefix "eli:title"))
                 (:score :float ,(s-prefix "nao:score")))
   :has-one `((rechtsgrond-besluit :via ,(s-prefix "eli:realizes")
