@@ -1,4 +1,17 @@
 
+
+## 1.8.0 (2023-06-19)
+
+#### :house: Internal
+* [#24](https://github.com/lblod/app-gn-publicatie/pull/24) Replace release-it-lerna-changelog by @release-it-plugins/lerna-changelog in config ([@elpoelma](https://github.com/elpoelma))
+* [#23](https://github.com/lblod/app-gn-publicatie/pull/23) Update frontend to 1.0.0 ([@elpoelma](https://github.com/elpoelma))
+* [#21](https://github.com/lblod/app-gn-publicatie/pull/21) Restructure mu-cl-resources models ([@elpoelma](https://github.com/elpoelma))
+
+#### Committers: 2
+- Elena Poelman ([@elpoelma](https://github.com/elpoelma))
+- Oscar Rodriguez Villalobos ([@lagartoverde](https://github.com/lagartoverde))
+
+
 ## 1.7.0 (2023-01-27)
 
 #### :house: Internal
