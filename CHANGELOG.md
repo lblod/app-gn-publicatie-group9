@@ -1,5 +1,15 @@
 
 
+
+## 1.8.1 (2023-06-22)
+
+#### :house: Internal
+* [#25](https://github.com/lblod/app-gn-publicatie/pull/25) chore: bump frontend to v1.0.1 ([@abeforgit](https://github.com/abeforgit))
+
+#### Committers: 1
+- Arne Bertrand ([@abeforgit](https://github.com/abeforgit))
+
+
 ## 1.8.0 (2023-06-19)
 
 #### :house: Internal
