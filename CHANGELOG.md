@@ -1,6 +1,13 @@
 
 
 
+## 1.8.2 (2023-07-07)
+
+- bump frontend to 1.0.2
+- bump melding to [0.6.1](https://github.com/lblod/besluit-publicatie-melding-service/releases/tag/v0.6.1)
+  fixes issue with publishing decisions that include RS
+
+
 ## 1.8.1 (2023-06-22)
 
 #### :house: Internal
