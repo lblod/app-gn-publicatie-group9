@@ -2,6 +2,15 @@
 
 
 
+
+## 1.8.4 (2023-07-17)
+
+#### :house: Internal
+* [#27](https://github.com/lblod/app-gn-publicatie/pull/27) Update frontend to 1.0.4 ([@elpoelma](https://github.com/elpoelma))
+
+#### Committers: 1
+- Elena Poelman ([@elpoelma](https://github.com/elpoelma))
+
 ## 1.8.3 (2023-07-14)
 
 #### :house: Internal
