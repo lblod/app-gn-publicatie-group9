@@ -2,11 +2,26 @@ defmodule Dispatcher do
   use Matcher
   define_accept_types [
     html: [ "text/html", "application/xhtml+html" ],
+    sparql: [ "application/sparql-results+json" ],
     any: [ "*/*" ]
   ]
 
   @html %{ accept: %{ html: true } }
   @any %{ accept: %{ any: true } }
+
+  ###############
+  # SPARQL
+  ###############
+
+  match "/sparql", %{ accept: %{ sparql: true } } do
+    Proxy.forward conn, [], "http://sparql-cache/sparql"
+  end
+
+  match "/raw-sparql", %{  accept: %{ sparql: true } } do
+    Proxy.forward conn, [], "http://database:8890/sparql"
+  end
+
+
 
   match "/published-resource-consumer/*path", @any do
     Proxy.forward conn, path, "http://published-resource-consumer/"
