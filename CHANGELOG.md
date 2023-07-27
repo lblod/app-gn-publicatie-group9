@@ -4,6 +4,18 @@
 
 
 
+
+## 1.9.0 (2023-07-27)
+
+#### :rocket: Enhancement
+* [#29](https://github.com/lblod/app-gn-publicatie/pull/29) GN-4299: addition of cached and raw sparql endpoints ([@elpoelma](https://github.com/elpoelma))
+
+#### :house: Internal
+* [#30](https://github.com/lblod/app-gn-publicatie/pull/30) Update frontend to 1.1.0 ([@elpoelma](https://github.com/elpoelma))
+
+#### Committers: 1
+- Elena Poelman ([@elpoelma](https://github.com/elpoelma))
+
 ## 1.8.5 (2023-07-18)
 
 #### :house: Internal
