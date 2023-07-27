@@ -129,3 +129,8 @@ services:
     image: semtech/mu-file-service:3.1.0
     links:
       - database:database
+  sparql-cache:
+    image: redpencil/varnish-post:1.0.0
+    environment:
+      BACKEND_HOST: database
+    restart: always
