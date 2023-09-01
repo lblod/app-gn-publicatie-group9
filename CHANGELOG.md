@@ -5,6 +5,16 @@
 
 
 
+
+## 1.9.1 (2023-09-01)
+
+#### :bug: Bug Fix
+* [#32](https://github.com/lblod/app-gn-publicatie/pull/32) GN-4470: chore(deps): bump frontend to [v1.1.2](https://github.com/lblod/frontend-gelinkt-notuleren-publicatie/releases/tag/v1.1.2) ([@abeforgit](https://github.com/abeforgit))
+
+#### Committers: 1
+- Arne Bertrand ([@abeforgit](https://github.com/abeforgit))
+
+
 ## 1.9.0 (2023-07-27)
 
 #### :rocket: Enhancement
