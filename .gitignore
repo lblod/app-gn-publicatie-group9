@@ -7,3 +7,4 @@ publicatie-app
 docker-compose.override.yml
 docker-overrides
 .env
+node_modules
