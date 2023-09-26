@@ -1,5 +1,11 @@
 # app-gn-publicatie
 
+## 1.9.3
+
+### Patch Changes
+
+- [#33](https://github.com/lblod/app-gn-publicatie/pull/33) [`65f06b1`](https://github.com/lblod/app-gn-publicatie/commit/65f06b16985bd3a8e675a21a28f59f905770a9ad) Thanks [@madnificent](https://github.com/madnificent)! - Bump mu-identifier to 1.10.1
+
 ## 1.9.2
 
 ### Patch Changes
