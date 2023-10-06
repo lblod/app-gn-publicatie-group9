@@ -137,6 +137,19 @@ defmodule Dispatcher do
     send_resp( conn, 404, "" )
   end
 
+  ###############
+  # PERMALINKS
+  ###############
+
+  # This will catch calls to links like {HOST}/Aalst/Gemeente/zitting/b2f47ed1-3534-11e9-a984-7db43f975d75
+  match "/:bestuurseenheid_naam/:bestuurseenheid_classificatie_code_label/zitting/:id", @any do
+    Proxy.forward conn, ["?uri=http://permalink", "zitting", id], "http://cooluri"
+  end
+
+  match "/permalink/*path", @any do
+    Proxy.forward conn, ["?uri=http://permalink"] ++ path, "http://cooluri"
+  end
+
   match "/*path", @html do
     # *_path allows a path to be supplied, but will not yield
     # an error that we don't use the path variable.
