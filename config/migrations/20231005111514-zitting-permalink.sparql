@@ -7,7 +7,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 INSERT {
     GRAPH <http://mu.semte.ch/graphs/public> {
-        ?permalink foaf:page ?redirectUrl.
+        ?session foaf:page ?redirectUrl.
     }
 }
 WHERE {
@@ -17,7 +17,6 @@ WHERE {
     ?administrativeUnit besluit:bestuurt ?bestuurseenheid .
     ?bestuurseenheid skos:prefLabel ?administrativeUnitName ;
         (besluit:classificatie/skos:prefLabel) ?administrativeUnitTypeName .
-    BIND(URI(CONCAT("http://permalink/zitting/", ?zittingUuid)) AS ?permalink)
     BIND(
         CONCAT("/", ?administrativeUnitName, "/", ?administrativeUnitTypeName, "/zittingen/", ?zittingUuid)
         AS ?redirectUrl
