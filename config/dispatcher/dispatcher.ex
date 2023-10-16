@@ -144,8 +144,8 @@ defmodule Dispatcher do
   # This will catch calls to pages {HOST}/Aalst/Gemeente/zitting/b2f47ed1-3534-11e9-a984-7db43f975d75
   # and redirect them to {HOST}/Aalst/Gemeente/zittingen/b2f47ed1-3534-11e9-a984-7db43f975d75
   # Note "zitting" vs "zittingen
-  match "/:bestuurseenheid_naam/:bestuurseenheid_classificatie_code_label/zitting/:id", @any do
-    conn = Plug.Conn.put_resp_header( conn, "location", "/" <> bestuurseenheid_naam <> "/" <> bestuurseenheid_classificatie_code_label <> "/zittingen/" <> id )
+  match "/:bestuurseenheid_naam/:bestuurseenheid_classificatie_code_label/zitting/*path", @any do
+    conn = Plug.Conn.put_resp_header( conn, "location", "/" <> bestuurseenheid_naam <> "/" <> bestuurseenheid_classificatie_code_label <> "/zittingen/" <> Enum.join( path, "/") )
     conn = send_resp( conn, 301, "" )
   end
 
