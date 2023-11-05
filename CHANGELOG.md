@@ -1,5 +1,13 @@
 # app-gn-publicatie
 
+## 1.10.0
+
+### Minor Changes
+
+- [#34](https://github.com/lblod/app-gn-publicatie/pull/34) [`555cfa2`](https://github.com/lblod/app-gn-publicatie/commit/555cfa252bafd752ea2d91d053d9845f247f8448) Thanks [@dkozickis](https://github.com/dkozickis)! - GN-4435: Use `cool-uri` to create permalink for `zitting`
+
+- [`c933acc`](https://github.com/lblod/app-gn-publicatie/commit/c933acc17a5f56e32e916c73a5cc17e04dfad77b) Thanks [@abeforgit](https://github.com/abeforgit)! - update frontend to [1.3.1](https://github.com/lblod/frontend-gelinkt-notuleren-publicatie/releases/tag/v1.3.1)
+
 ## 1.9.3
 
 ### Patch Changes
