@@ -1,5 +1,11 @@
 # app-gn-publicatie
 
+## 1.10.1
+
+### Patch Changes
+
+- [`eab8c26`](https://github.com/lblod/app-gn-publicatie/commit/eab8c260ca4744ba75e2acbfd40c9b9946771fec) Thanks [@abeforgit](https://github.com/abeforgit)! - bump FE to [1.3.3](https://github.com/lblod/frontend-gelinkt-notuleren-publicatie/releases/tag/v1.3.3) to fix fastboot issues
+
 ## 1.10.0
 
 ### Minor Changes
