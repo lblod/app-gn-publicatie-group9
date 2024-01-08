@@ -1,7 +1,7 @@
 {
   "name": "app-gn-publicatie",
   "private": true,
-  "version": "1.10.1",
+  "version": "1.11.0",
   "scripts": {
     "release": "release-it"
   },
