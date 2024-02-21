@@ -43,7 +43,7 @@ services:
     labels:
       - "logging=true"
   virtuoso:
-    image: tenforce/virtuoso
+    image: redpencil/virtuoso:1.2.0-rc.1
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
@@ -93,7 +93,7 @@ services:
     environment:
       RESCHEDULE_CRON_PATTERN: '15 7 * * *'
   resource:
-    image: semtech/mu-cl-resources:1.21.0
+    image: semtech/mu-cl-resources:1.23.0
     volumes:
       - ./config/resources:/config
     restart: always
