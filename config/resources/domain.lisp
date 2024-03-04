@@ -53,9 +53,7 @@
                 (:geeindigd-op-tijdstip :datetime ,(s-prefix "prov:endedAtTime"))
                 (:op-locatie :url ,(s-prefix "prov:atLocation")))
 
-  :has-many `((mandataris :via ,(s-prefix "besluit:heeftAanwezigeBijStart")
-                          :as "aanwezigen-bij-start")
-              (agendapunt :via ,(s-prefix "besluit:behandelt")
+  :has-many `((agendapunt :via ,(s-prefix "besluit:behandelt")
                           :as "agendapunten")
               (uittreksel :via ,(s-prefix "ext:uittreksel")
                           :as "uittreksels")
@@ -64,10 +62,6 @@
 
   :has-one `((bestuursorgaan :via ,(s-prefix "besluit:isGehoudenDoor")
                              :as "bestuursorgaan")
-             (mandataris :via ,(s-prefix "besluit:heeftSecretaris")
-                         :as "secretaris")
-             (mandataris :via ,(s-prefix "besluit:heeftVoorzitter")
-                         :as "voorzitter")
              (notulen :via ,(s-prefix "besluit:heeftNotulen")
                       :as "notulen")
              (besluitenlijst :via ,(s-prefix "ext:besluitenlijst")
@@ -108,18 +102,12 @@
                 (:position :int ,(s-prefix "schema:position")))
   :has-many `((besluit :via ,(s-prefix "prov:generated")
                        :as "besluiten")
-              (mandataris :via ,(s-prefix "besluit:heeftAanwezige")
-                          :as "aanwezigen")
               (stemming :via ,(s-prefix "besluit:heeftStemming")
                           :as "stemmingen"))
   :has-one `((behandeling-van-agendapunt :via ,(s-prefix "besluit:gebeurtNa")
                                          :as "vorige-behandeling-van-agendapunt")
              (agendapunt :via ,(s-prefix "dct:subject")
-                              :as "onderwerp")
-             (mandataris :via ,(s-prefix "besluit:heeftSecretaris")
-                         :as "secretaris")
-             (mandataris :via ,(s-prefix "besluit:heeftVoorzitter")
-                         :as "voorzitter"))
+                              :as "onderwerp"))
   :resource-base (s-url "http://data.lblod.info/id/behandelingen-van-agendapunt")
   :features '(include-uri)
   :on-path "behandelingen-van-agendapunten"
@@ -134,16 +122,6 @@
                 (:title :string ,(s-prefix "dct:title"))
                 (:gevolg :string ,(s-prefix "besluit:gevolg"))
                 (:onderwerp :string ,(s-prefix "besluit:onderwerp")))
-  :has-many `((mandataris :via ,(s-prefix "besluit:heeftAanwezige")
-                          :as "aanwezigen")
-              (mandataris :via ,(s-prefix "besluit:heeftOnthouder")
-                          :as "onthouders")
-              (mandataris :via ,(s-prefix "besluit:heeftStemmer")
-                          :as "stemmers")
-              (mandataris :via ,(s-prefix "besluit:heeftTegenstander")
-                          :as "tegenstanders")
-              (mandataris :via ,(s-prefix "besluit:heeftVoorstander")
-                          :as "voorstanders"))
   :resource-base (s-url "http://data.lblod.info/id/stemmingen/")
   :features '(include-uri)
   :on-path "stemmingen"
@@ -160,9 +138,7 @@
                 (:parts :uri-set ,(s-prefix "eli:related_to"))
                 (:titel :string ,(s-prefix "eli:title"))
                 (:score :float ,(s-prefix "nao:score")))
-  :has-one `((rechtsgrond-besluit :via ,(s-prefix "eli:realizes")
-                                  :as "realisatie")
-             (behandeling-van-agendapunt :via ,(s-prefix "prov:generated")
+  :has-one `((behandeling-van-agendapunt :via ,(s-prefix "prov:generated")
                                          :inverse t
                                          :as "volgend-uit-behandeling-van-agendapunt")
              (besluitenlijst :via ,(s-prefix "ext:besluitenlijstBesluit")
@@ -229,12 +205,7 @@
                                :as "signed-resources"))
   :has-one `((published-resource :via ,(s-prefix "ext:publishesAgenda")
                                  :inverse t
-                                 :as "published-resource")
-             (editor-document :via ,(s-prefix "prov:wasDerivedFrom")
-                              :as "editor-document")
-             (document-container :via ,(s-prefix "ext:hasVersionedAgenda")
-                                 :inverse t
-                                 :as "document-container"))
+                                 :as "published-resource"))
   :resource-base (s-url "http://data.lblod.info/prepublished-agendas/")
   :features '(include-uri)
   :on-path "versioned-agendas"
@@ -250,11 +221,6 @@
   :has-one `((published-resource :via ,(s-prefix "ext:publishesBehandeling")
                                  :inverse t
                                  :as "published-resource")
-             (editor-document :via ,(s-prefix "prov:wasDerivedFrom")
-                              :as "editor-document")
-             (document-container :via ,(s-prefix "ext:hasVersionedBehandeling")
-                                 :inverse t
-                                 :as "document-container")
              (behandeling-van-agendapunt :via ,(s-prefix "ext:behandeling")
                                          :as "behandeling"))
   :resource-base (s-url "http://data.lblod.info/prepublished-behandeling/")
@@ -271,12 +237,7 @@
                                :as "signed-resources"))
   :has-one `((published-resource :via ,(s-prefix "ext:publishesBesluitenlijst")
                                  :inverse t
-                                 :as "published-resource")
-             (editor-document :via ,(s-prefix "prov:wasDerivedFrom")
-                              :as "editor-document")
-             (document-container :via ,(s-prefix "ext:hasVersionedBesluitenLijst")
-                                 :inverse t
-                                 :as "document-container"))
+                                 :as "published-resource"))
   :resource-base (s-url "http://data.lblod.info/prepublished-besluiten-lijsten/")
   :features '(include-uri)
   :on-path "versioned-besluiten-lijsten"
@@ -294,12 +255,7 @@
                                :as "signed-resources"))
   :has-one `((published-resource :via ,(s-prefix "ext:publishesNotulen")
                                  :inverse t
-                                 :as "published-resource")
-             (editor-document :via ,(s-prefix "prov:wasDerivedFrom")
-                              :as "editor-document")
-             (document-container :via ,(s-prefix "ext:hasVersionedNotulen")
-                                 :inverse t
-                                 :as "document-container"))
+                                 :as "published-resource"))
   :resource-base (s-url "http://data.lblod.info/prepublished-notulen/")
   :features '(include-uri)
   :on-path "versioned-notulen"
@@ -320,9 +276,7 @@
              (versioned-behandeling :via ,(s-prefix "ext:publishesBehandeling")
                                         :as "versioned-behandeling")
              (versioned-notulen :via ,(s-prefix "ext:publiseshNotulen")
-                                :as "versioned-notulen")
-             (gebruiker :via ,(s-prefix "sign:signatory")
-                        :as "gebruiker"))
+                                :as "versioned-notulen"))
   :resource-base (s-url "http://data.lblod.info/published-resources/")
   :features '(include-uri)
   :on-path "published-resources"
@@ -342,9 +296,7 @@
              (versioned-notulen :via ,(s-prefix "ext:signsNotulen")
                                 :as "versioned-notulen")
              (versioned-behandeling :via ,(s-prefix "ext:signsBehandeling")
-                                    :as "versioned-behandeling")
-             (gebruiker :via ,(s-prefix "sign:signatory")
-                        :as "gebruiker"))
+                                    :as "versioned-behandeling"))
   :resource-base (s-url "http://data.lblod.info/signed-resources/")
   :features '(include-uri)
   :on-path "signed-resources"
@@ -367,8 +319,6 @@
                 (:titel :string ,(s-prefix "eli:title"))
                 (:page :url ,(s-prefix "foaf:page"))
                 (:score :float ,(s-prefix "nao:score")))
-  :has-one `((rechtsgrond-artikel :via ,(s-prefix "eli:realizes")
-                                    :as "realisatie"))
   :resource-base (s-url "http://data.lblod.info/id/artikels/")
   :features '(include-uri)
   :on-path "artikels"
@@ -405,9 +355,7 @@
                              :as "provincie")
              (bestuurseenheid-classificatie-code :via ,(s-prefix "besluit:classificatie")
                                                  :as "classificatie"))
-  :has-many `((contact-punt :via ,(s-prefix "schema:contactPoint")
-                            :as "contactinfo")
-              (bestuursorgaan :via ,(s-prefix "besluit:bestuurt")
+  :has-many `((bestuursorgaan :via ,(s-prefix "besluit:bestuurt")
                               :inverse t
                               :as "bestuursorganen"))
   :resource-base (s-url "http://data.lblod.info/id/bestuurseenheden/")
@@ -434,17 +382,10 @@
              (bestuursorgaan-classificatie-code :via ,(s-prefix "besluit:classificatie")
                                                 :as "classificatie")
              (bestuursorgaan :via ,(s-prefix "mandaat:isTijdspecialisatieVan")
-                             :as "is-tijdsspecialisatie-van")
-             (rechtstreekse-verkiezing :via ,(s-prefix "mandaat:steltSamen")
-                                      :inverse t
-                                      :as "wordt-samengesteld-door"))
+                             :as "is-tijdsspecialisatie-van"))
   :has-many `((bestuursorgaan :via ,(s-prefix "mandaat:isTijdspecialisatieVan")
                        :inverse t
-                       :as "heeft-tijdsspecialisaties")
-              (mandaat :via ,(s-prefix "org:hasPost")
-                       :as "bevat")
-              (bestuursfunctie :via ,(s-prefix "lblodlg:heeftBestuursfunctie")
-                               :as "bevat-bestuursfunctie"))
+                       :as "heeft-tijdsspecialisaties"))
   :resource-base (s-url "http://data.lblod.info/id/bestuursorganen/")
   :features '(include-uri)
   :on-path "bestuursorganen"
@@ -454,8 +395,6 @@
   :class (s-prefix "ext:BestuursorgaanClassificatieCode")
   :properties `((:label :string ,(s-prefix "skos:prefLabel"))
                 (:scope-note :string ,(s-prefix "skos:scopeNote")))
-  :has-many `((bestuursfunctie-code :via ,(s-prefix "ext:hasDefaultType")
-                        :as "standaard-type"))
   :resource-base (s-url "http://data.vlaanderen.be/id/concept/BestuursorgaanClassificatieCode/")
   :features '(include-uri)
   :on-path "bestuursorgaan-classificatie-codes"
