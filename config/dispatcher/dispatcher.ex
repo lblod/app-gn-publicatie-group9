@@ -63,7 +63,6 @@ defmodule Dispatcher do
   end
 
   get "/bestuurseenheid-classificatie-codes/*path", @any do
-    IO.inspect(conn, label: "conn to cache")
     Proxy.forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
 
@@ -128,7 +127,7 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
   end
 
-  match "/favicon.ico", @any do
+  get "/favicon.ico", @any do
     send_resp( conn, 404, "" )
   end
 
@@ -156,8 +155,6 @@ defmodule Dispatcher do
   end
 
   get "/*path", @html do
-    # *_path allows a path to be supplied, but will not yield
-    # an error that we don't use the path variable.
     Proxy.forward conn, path, "http://publicatie/"
   end
 
