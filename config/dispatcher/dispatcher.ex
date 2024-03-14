@@ -23,114 +23,109 @@ defmodule Dispatcher do
 
 
 
-  match "/published-resource-consumer/*path", @any do
+  get "/published-resource-consumer/*path", @any do
     Proxy.forward conn, path, "http://published-resource-consumer/"
   end
-  match "/agendas/*path", @any do
+  get "/agendas/*path", @any do
     Proxy.forward conn, path, "http://cache/agendas/"
   end
 
-  match "/besluitenlijsten/*path", @any do
+  get "/besluitenlijsten/*path", @any do
     Proxy.forward conn, path, "http://cache/besluitenlijsten/"
   end
 
-  match "/uittreksels/*path", @any do
+  get "/uittreksels/*path", @any do
     Proxy.forward conn, path, "http://cache/uittreksels/"
   end
 
-  match "/agendapunten/*path", @any do
+  get "/agendapunten/*path", @any do
     Proxy.forward conn, path, "http://cache/agendapunten/"
   end
 
-  match "/behandelingen-van-agendapunten/*path", @any do
+  get "/behandelingen-van-agendapunten/*path", @any do
     Proxy.forward conn, path, "http://cache/behandelingen-van-agendapunten/"
   end
 
-  match "/stemmingen/*path", @any do
+  get "/stemmingen/*path", @any do
     Proxy.forward conn, path, "http://cache/stemmingen/"
   end
 
-  match "/besluiten/*path", @any do
+  get "/besluiten/*path", @any do
     Proxy.forward conn, path, "http://cache/besluiten/"
   end
 
-  match "/bestuurseenheden/*path", @any do
+  get "/bestuurseenheden/*path", @any do
     Proxy.forward conn, path, "http://cache/bestuurseenheden/"
   end
 
-  match "/werkingsgebieden/*path", @any do
+  get "/werkingsgebieden/*path", @any do
     Proxy.forward conn, path, "http://cache/werkingsgebieden/"
   end
 
-  match "/bestuurseenheid-classificatie-codes/*path", @any do
+  get "/bestuurseenheid-classificatie-codes/*path", @any do
     IO.inspect(conn, label: "conn to cache")
     Proxy.forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
 
-  match "/bestuursorganen/*path", @any do
+  get "/bestuursorganen/*path", @any do
     Proxy.forward conn, path, "http://cache/bestuursorganen/"
   end
 
-  match "/bestuursorgaan-classificatie-codes/*path", @any do
+  get "/bestuursorgaan-classificatie-codes/*path", @any do
     Proxy.forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
   end
 
-  match "/zittingen/*path", @any do
+  get "/zittingen/*path", @any do
     Proxy.forward conn, path, "http://cache/zittingen/"
   end
 
-  match "/notulen/*path", @any do
+  get "/notulen/*path", @any do
     Proxy.forward conn, path, "http://cache/notulen/"
   end
 
 
-  match "/signed-resources/*path", @any do
+  get "/signed-resources/*path", @any do
     Proxy.forward conn, path, "http://cache/signed-resources/"
   end
 
-  match "/published-resources/*path", @any do
+  get "/published-resources/*path", @any do
     Proxy.forward conn, path, "http://cache/published-resources/"
   end
 
-  match "/versioned-agendas/*path", @any do
+  get "/versioned-agendas/*path", @any do
     Proxy.forward conn, path, "http://cache/versioned-agendas/"
   end
 
-  match "/versioned-besluiten-lijsten/*path", @any do
+  get "/versioned-besluiten-lijsten/*path", @any do
     Proxy.forward conn, path, "http://cache/versioned-besluiten-lijsten/"
   end
 
-  match "/versioned-behandelingen/*path", @any do
+  get "/versioned-behandelingen/*path", @any do
     Proxy.forward conn, path, "http://cache/versioned-behandelingen/"
   end
 
-  match "/versioned-notulen/*path", @any do
+  get "/versioned-notulen/*path", @any do
     Proxy.forward conn, path, "http://cache/versioned-notulen/"
   end
 
-  match "/concepts/*path", @any do
+  get "/concepts/*path", @any do
     Proxy.forward conn, path, "http://cache/concepts/"
   end
 
-  match "/concept-schemes/*path", @any do
+  get "/concept-schemes/*path", @any do
     Proxy.forward conn, path, "http://cache/concept-schemes/"
   end
 
-  match "/@appuniversum/*path", @any do
+  get "/@appuniversum/*path", @any do
     Proxy.forward conn, path, "http://publicatie/@appuniversum/"
   end
 
-  match "/assets/*path", @any do
-    IO.puts "forwarding assets"
+  get "/assets/*path", @any do
     Proxy.forward conn, path, "http://publicatie/assets/"
   end
 
   get "/files/:id/download" do
     Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
-  end
-
-  post "/files/*path" do
-    Proxy.forward conn, path, "http://file/files/"
   end
 
   match "/favicon.ico", @any do
@@ -144,12 +139,12 @@ defmodule Dispatcher do
   # This will catch calls to pages {HOST}/Aalst/Gemeente/zitting/b2f47ed1-3534-11e9-a984-7db43f975d75
   # and redirect them to {HOST}/Aalst/Gemeente/zittingen/b2f47ed1-3534-11e9-a984-7db43f975d75
   # Note "zitting" vs "zittingen
-  match "/:bestuurseenheid_naam/:bestuurseenheid_classificatie_code_label/zitting/*path", @any do
+  get "/:bestuurseenheid_naam/:bestuurseenheid_classificatie_code_label/zitting/*path", @any do
     conn = Plug.Conn.put_resp_header( conn, "location", "/" <> bestuurseenheid_naam <> "/" <> bestuurseenheid_classificatie_code_label <> "/zittingen/" <> Enum.join( path, "/") )
     conn = send_resp( conn, 301, "" )
   end
 
-  match "/permalink", @any do
+  get "/permalink", @any do
     conn = Plug.Conn.fetch_query_params(conn)
     uri = conn.query_params["uri"]
 
@@ -160,13 +155,13 @@ defmodule Dispatcher do
     end
   end
 
-  match "/*path", @html do
+  get "/*path", @html do
     # *_path allows a path to be supplied, but will not yield
     # an error that we don't use the path variable.
     Proxy.forward conn, path, "http://publicatie/"
   end
 
-  match "/*_", %{ last_call: true, accept: %{ json: true } } do
+  match "/*_", %{ last_call: true } do
     send_resp( conn, 404, "{ \"error\": { \"code\": 404, \"message\": \"Route not found.  See config/dispatcher.ex\" } }" )
   end
 end
