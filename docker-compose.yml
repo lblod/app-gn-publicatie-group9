@@ -75,7 +75,7 @@ services:
     labels:
       - "logging=true"
   besluit-publicatie:
-    image: lblod/besluit-publicatie-publish-service:0.11.0
+    image: lblod/besluit-publicatie-publish-service:0.12.0
     links:
       - database:database
     restart: always
@@ -112,7 +112,7 @@ services:
       - ./config/delta:/config
     restart: always
   published-resource-consumer:
-    image: lblod/gelinkt-notuleren-consumer:0.1.6
+    image: lblod/gelinkt-notuleren-consumer:0.2.2
     environment:
       SERVICE_NAME: 'published-resource-consumer'
 #      SYNC_BASE_URL: 'http://[dev.]gelinkt-notuleren.lblod.info'
