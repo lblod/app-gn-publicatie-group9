@@ -1,5 +1,17 @@
 # app-gn-publicatie
 
+## 1.12.0
+
+### Minor Changes
+
+- [`b0bacb8`](https://github.com/lblod/app-gn-publicatie/commit/b0bacb83b6ff086244d418e28d3c17ba9df02e61) Thanks [@abeforgit](https://github.com/abeforgit)! - support publication as files
+
+### Patch Changes
+
+- [#35](https://github.com/lblod/app-gn-publicatie/pull/35) [`1f01700`](https://github.com/lblod/app-gn-publicatie/commit/1f017001b44091a36060ef2a773903a244625335) Thanks [@elpoelma](https://github.com/elpoelma)! - Remove unresolvable relationships from resource models
+
+- [`ac7da53`](https://github.com/lblod/app-gn-publicatie/commit/ac7da531cc93a13f78cea3b6646c88fc4e4f66a7) Thanks [@abeforgit](https://github.com/abeforgit)! - bump resources and virtuoso to latest versions
+
 ## 1.11.0
 
 ### Minor Changes
