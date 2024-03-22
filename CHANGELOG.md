@@ -1,5 +1,11 @@
 # app-gn-publicatie
 
+## 1.12.1
+
+### Patch Changes
+
+- [`0461bb9`](https://github.com/lblod/app-gn-publicatie/commit/0461bb97c03387ae1603240d1a4a34814f4ede18) Thanks [@abeforgit](https://github.com/abeforgit)! - fix publication service issues by reverting js-template version
+
 ## 1.12.0
 
 ### Minor Changes
