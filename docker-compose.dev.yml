@@ -8,10 +8,16 @@ x-logging: &default-logging
 services:
   publicatie:
     restart: "no"
+  dispatcher:
+    restart: "no"
   identifier:
     ports:
       - "8080:80"
     restart: "no"
+    environment:
+      SESSION_COOKIE_SECURE: "false"
+      # SAME_SITE: "None" doesn't work with insecure cookies
+      SESSION_COOKIE_SAME_SITE: "Lax"
   database:
     restart: "no"
   virtuoso:
@@ -31,12 +37,22 @@ services:
   publicatie-melding:
     restart: "no"
     command: "/bin/false" # overwrite when testing
+  resource:
+    restart: "no"
+  deltanotifier:
+    restart: "no"
+  published-resource-consumer:
+    restart: "no"
   taskmetrics:
     restart: "no"
   file:
     restart: "no"
     volumes:
         - ../app-gelinkt-notuleren/data/files/:/share/
+  sparql-cache:
+    restart: "no"
+  cooluri:
+    restart: "no"
   # # enable the following for linking the consumer to a local stack
   # # assumes the app-gn stack is running locally on your host
   # # and you've renamed the identifier to identifier-gelinkt-notuleren

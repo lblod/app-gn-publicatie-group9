@@ -123,10 +123,12 @@ services:
       - ./config/consumer/:/config/
   taskmetrics:
     image: lblod/task-metrics-service:1.0.0
+    restart: always
     links:
       - database:database
   file:
     image: semtech/mu-file-service:3.1.0
+    restart: always
     links:
       - database:database
   sparql-cache:
@@ -136,6 +138,7 @@ services:
     restart: always
   cooluri:
     image: nvdk/cool-uris:1.0.0
+    restart: always
     environment:
       SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
       PORT: 80
