@@ -1,5 +1,15 @@
 # app-gn-publicatie
 
+## 1.13.0
+
+### Minor Changes
+
+- [#37](https://github.com/lblod/app-gn-publicatie/pull/37) [`5a5e033`](https://github.com/lblod/app-gn-publicatie/commit/5a5e033c3e5672dbb84b859a18cbce65835674ed) Thanks [@abeforgit](https://github.com/abeforgit)! - Support publication of large meetings
+
+### Patch Changes
+
+- [#38](https://github.com/lblod/app-gn-publicatie/pull/38) [`7c6e40b`](https://github.com/lblod/app-gn-publicatie/commit/7c6e40b0635e0054315b5bac49a6d706e70ad5e8) Thanks [@piemonkey](https://github.com/piemonkey)! - Always restart services in production, never in development
+
 ## 1.12.1
 
 ### Patch Changes
