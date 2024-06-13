@@ -1,5 +1,11 @@
 # app-gn-publicatie
 
+## 1.13.1
+
+### Patch Changes
+
+- [`37856b9`](https://github.com/lblod/app-gn-publicatie/commit/37856b9ec60c5e38e67793ba3992db44dab8af9e) Thanks [@elpoelma](https://github.com/elpoelma)! - Update frontend to version 1.6.0
+
 ## 1.13.0
 
 ### Minor Changes
