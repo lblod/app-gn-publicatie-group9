@@ -62,6 +62,13 @@ defmodule Acl.UserGroups.Config do
                         "http://www.w3.org/2004/02/skos/core#Concept",
                         "http://www.w3.org/2004/02/skos/core#ConceptScheme",
                         "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
+                        # Resource types for hackathon
+                        "https://dbpedia.org/ontology/case",
+                        "https://data.vlaanderen.be/ns/omgevingsvergunning#Activiteit",
+                        "https://data.vlaanderen.be/ns/omgevingsvergunning#Aanvraag",
+                        "http://www.w3.org/ns/adms#Identifier",
+                        "http://www.opengis.net/ont/geosparql#Feature",
+                        "http://www.w3.org/2006/time#Interval"
                       ]
                     } },
                   %GraphSpec{
